@@ -1,0 +1,30 @@
+Ip del minikube: 192.168.99.102
+
+Ver pods: kubectl get po
+Ver replicasets: kubectl get rs
+Ver deploys: kubectl get deploy
+Ver services: kubectl get svc
+Ver namepspaces: kubectl get ns
+Ver configmaps: kubectl get cm
+Ver secrets: kubectl get secrets
+Ver volumes: kubectl get pv
+Ver volumes claim: kubectl get pvc
+ver sercice accounts: kubectl get sa
+Ver pods por label: kubectl get po -l env=front
+Ver labels del deploy: get deploy --show-labels
+Ver estado actual del deploy: kubectl describe deploy deployment-test
+Ver pods por namespace: kubectl get pods --namespace <namespace-name>
+
+Ver status del deploy: kubectl rollout status deploy <deploy-name>
+Ver historial de despliegues: kubectl rollout history deploy <deploy-name>
+Volver version atras: kubectl rollout undo deploy <deploy-name> --to-revision=1
+
+Aplicar cambios: kubectl apply -f pod.yaml
+Borrar cambios: kubectl delete -f pod.yaml
+
+Crear configmap: kubectl create configmap <configmap-name> --from-file=nginx.conf
+Crear secret: kubectl create secret generic <secret-name> --from-file=./secrets/test.txt
+
+Consola del pod: kubectl exec -ti <pod-name> -- sh
+Consola del contenedor: kubectl exec -ti <pod-name> -c <container-name> -- sh
+Consola de pod temporal: kubectl run --rm -ti --generator=run-pod/v1 <pod-name> --image=nginx:alpine -- sh
